@@ -1,0 +1,141 @@
+
+@import "tailwindcss";
+
+/* ================= THEME ================= */
+@theme {
+
+  /* ===== Brand Colors ===== */
+  --color-dark-maroon: #211A18; /* Dark text */
+  --color-maroon-light: #D89A7C; /* Primary accent: rose gold */
+  --color-muted-maroon: #665854; /* Secondary text */
+  --color-luxury-accent: #C88963; /* Champagne copper */
+  --color-pink-accent: #E9A6A8;
+  --color-sage-accent: #66735B;
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+
+  /* ===== Background Colors ===== */
+  --color-white-bg: #FFF8F5; /* Warm ivory */
+  --color-cream-beige: #FBE8E6; /* Soft blush */
+
+  /* ===== Extra Utility Colors ===== */
+  --color-light-beige: #FBE8E6;
+  --color-border-beige: #E9A6A8; /* using pink accent for borders */
+  --color-brown-soft: #665854;
+
+  /* ===== Fonts ===== */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* ===== Shadows ===== */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 12px 35px rgba(74, 45, 31, 0.08);
+
+  /* ===== Radius ===== */
+  --radius-card: 1.5rem;
+}
+
+/* ================= BASE ================= */
+@layer base {
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white-bg text-dark-maroon font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+
+  button {
+    @apply cursor-pointer transition-all duration-300;
+  }
+
+  img {
+    @apply select-none;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* ================= COMPONENTS ================= */
+@layer components {
+
+  /* ===== Primary Button ===== */
+  .btn-primary {
+    @apply bg-dark-maroon text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 hover:bg-maroon-light;
+  }
+
+  /* ===== Secondary Button ===== */
+  .btn-secondary {
+    @apply border-2 border-dark-maroon text-dark-maroon px-8 py-3 rounded-xl font-semibold bg-white/40 backdrop-blur-sm hover:bg-white;
+  }
+
+  /* ===== Section Title ===== */
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif text-dark-maroon leading-tight;
+  }
+
+  /* ===== Section Subtitle ===== */
+  .section-subtitle {
+    @apply text-muted-maroon text-lg mt-3;
+  }
+
+  /* ===== Card ===== */
+  .card-soft {
+    @apply bg-white rounded-[1.5rem] shadow-[0_12px_35px_rgba(74,45,31,0.08)] border border-border-beige;
+  }
+
+  /* ===== Input ===== */
+  .input-soft {
+    @apply w-full border border-border-beige bg-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-dark-maroon;
+  }
+}
+
+/* ================= UTILITIES ================= */
+@layer utilities {
+
+  /* ===== Glass Effect ===== */
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.05)];
+  }
+
+  /* ===== Text Gradient ===== */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-dark-maroon to-maroon-light;
+  }
+
+  /* ===== Hover Lift ===== */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  /* ===== Hide Scrollbar ===== */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* ===== Container ===== */
+  .container-soft {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+}
